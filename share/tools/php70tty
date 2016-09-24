@@ -1,0 +1,3 @@
+#!/bin/bash
+CMD+="php70 $@"
+docker exec -t -i share_php_1 bash -c "$CMD"

@@ -1,0 +1,9 @@
+#!/bin/bash
+CMD="export IDE_PHPUNIT_PHPUNIT_PHAR='$IDE_PHPUNIT_PHPUNIT_PHAR'"
+CMD+=" && export IDE_PHPUNIT_VERSION='$IDE_PHPUNIT_VERSION'"
+CMD+=" && export SSH_CLIENT='$SSH_CLIENT'"
+CMD+=" && export JETBRAINS_REMOTE_RUN='$JETBRAINS_REMOTE_RUN'"
+CMD+=" && export DEBUG_CONFIG='$XDEBUG_CONFIG'"
+CMD+=" && export XDEBUG_CONFIG='$XDEBUG_CONFIG'"
+CMD+=" && php56 $@"
+docker exec share_php_1 bash -c "$CMD"
