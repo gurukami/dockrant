@@ -33,6 +33,7 @@ Vagrant.configure(2) do |config|
     s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
   end
 
+  config.vm.provision "shell", inline: 'mkdir /vagrant', run: "once"
   config.vm.provision "shell", inline: 'echo "nameserver 8.8.8.8" >> /etc/resolv.conf', run: "always"
   config.vm.provision "shell", path: './vagrant/build/php/init.sh', run: "once"
   config.vm.provision "shell", path: './vagrant/build/docker/docker-compose.sh', run: "once"
